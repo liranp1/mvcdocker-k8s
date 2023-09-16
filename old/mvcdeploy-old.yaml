@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mvcdocker
+  name: mvcdocker
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mvcdocker 
+  template:
+    metadata:
+      labels:
+        app: mvcdocker
+    spec:
+      containers:
+      - image: liranp1/mvcdocker:v1.12
+        name: mvcdocker
+        resources: {}
+        ports:
+        - containerPort: 5297
+        volumeMounts:
+        - name: mvc-mount
+        mountPath: /app/files
+      volumes:
+      - name: mvc-mount
+        hostPath:
+          path: /home/liran/MVC
