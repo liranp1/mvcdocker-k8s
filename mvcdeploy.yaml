@@ -5,7 +5,7 @@ metadata:
     app: mvcdocker
   name: mvcdocker
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
       app: mvcdocker 
@@ -15,7 +15,7 @@ spec:
         app: mvcdocker
     spec:
       containers:
-      - image: liranp1/mvcdocker:v1.12
+      - image: liranp1/mvcdocker:v1.13
         name: mvcdocker
         resources: {}
         ports:
